@@ -16,6 +16,7 @@ repositories {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter"
     compile "org.springframework.boot:spring-boot-starter-batch"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.projectlombok:lombok:1.18.2"
     runtime "com.h2database:h2"
     testImplementation("org.springframework.boot:spring-boot-starter-test"){
