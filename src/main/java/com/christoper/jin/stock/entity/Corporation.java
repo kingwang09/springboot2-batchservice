@@ -189,13 +189,13 @@ public class Corporation {
     this.referenceCorporationEstablishDate = referenceCorporationEstablishDate;
   }
 
-//  public Corporation(CorporationRaw item) {
-//    this.corporationCode = item.getCorporationCode();
-//
-//    this.name = item.getName();
-//    this.nameByTrade = item.getNameByTrade();
-//    this.nameByEnglish = item.getNameByEnglish();
-//
+  public Corporation(CorporationRaw item) {
+    this.corporationCode = item.getCorporationCode();
+
+    this.name = item.getName();
+    this.nameByTrade = item.getNameByTrade();
+    this.nameByEnglish = item.getNameByEnglish();
+
 //    this.type = ;
 //    this.scale = scale;
 //    this.graduatedDate = graduatedDate;
@@ -246,6 +246,6 @@ public class Corporation {
 //    this.productName = productName;
 //    this.referenceCorporationCode = referenceCorporationCode;
 //    this.referenceCorporationEstablishDate = referenceCorporationEstablishDate;
-//
-//  }
+
+  }
 }
