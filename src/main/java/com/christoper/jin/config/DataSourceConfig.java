@@ -29,19 +29,19 @@ import javax.sql.DataSource;
 @EnableConfigurationProperties
 public class DataSourceConfig {
 
-  @Bean
-  @ConfigurationProperties(prefix="spring.christoper.datasource")
-  public DataSource dataSource(){
-    return DataSourceBuilder.create()
-            .type(HikariDataSource.class)
-            .build();
-  }
-
-  @Bean(name="batchDataSource")
-  @Primary
-  @ConfigurationProperties(prefix = "spring.batch.datasource")
-  public DataSource batchDataSource(){
-    return DataSourceBuilder.create().build();
-  }
+//  @Bean
+//  @ConfigurationProperties(prefix="spring.christoper.datasource")
+//  public DataSource dataSource(){
+//    return DataSourceBuilder.create()
+//            .type(HikariDataSource.class)
+//            .build();
+//  }
+//
+//  @Bean(name="batchDataSource")
+//  @Primary
+//  @ConfigurationProperties(prefix = "spring.batch.datasource")
+//  public DataSource batchDataSource(){
+//    return DataSourceBuilder.create().build();
+//  }
 
 }

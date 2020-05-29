@@ -5,6 +5,7 @@ import com.christoper.jin.free.entity.FreeArticle;
 import com.christoper.jin.free.repository.FreeArticleRepository;
 import com.christoper.jin.free.service.AlarmService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -28,17 +29,21 @@ import org.springframework.batch.repeat.RepeatStatus;
  * ------------------------------------------------------------------------
  * 2020. 5. 29. || 진형은 || 최초생성
  */
+@Slf4j
 @RequiredArgsConstructor
 public class JunggonaraScrapper implements Tasklet {
 
   private final AlarmService alarmService;
   private final FreeArticleRepository repository;
+
   @Override
   public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
     FreeArticleType junngonara = FreeArticleType.JUNNGONARA;
 
-    Document document = Jsoup.connect(junngonara.getMainURL()).get();
+    Document document = Jsoup.connect(junngonara.getMainURL()+junngonara.getListURL()).get();
     Element targetElement = document.getElementById(junngonara.getTargetElement());
+    log.debug("targetElement: {}", targetElement);
+
     Element articleDiv = targetElement.nextElementSibling();
 
     Elements articleList = articleDiv.select("a.article");

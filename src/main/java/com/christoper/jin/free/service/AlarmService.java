@@ -1,7 +1,16 @@
 package com.christoper.jin.free.service;
 
 import com.christoper.jin.free.entity.FreeArticle;
+import com.christoper.jin.notification.constant.WebHook;
+import com.christoper.jin.notification.slack.model.SlackBase;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.io.IOException;
 
 /**
  * @Class AlaramService
@@ -21,6 +30,10 @@ import org.springframework.stereotype.Service;
 public class AlarmService {
 
   public void send(FreeArticle freeArticle) {
-
+    RestTemplate restTemplate = new RestTemplate();
+    HttpHeaders headers = new HttpHeaders();
+    headers.set(HttpHeaders.CONTENT_TYPE, "application/json");
+    SlackBase params = SlackBase.builder().text(freeArticle.getTitle()+", "+freeArticle.getDetailLink()).build();
+    restTemplate.exchange(WebHook.SLACK_FREE_MARKET.getWebbHookURL(), HttpMethod.POST, new HttpEntity<SlackBase>(params, headers), (Class<Object>) null);
   }
 }

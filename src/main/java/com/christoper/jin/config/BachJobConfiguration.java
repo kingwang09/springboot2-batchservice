@@ -23,8 +23,8 @@ import org.springframework.context.annotation.Configuration;
 @EnableBatchProcessing
 public class BachJobConfiguration {
 
-  @Autowired
-  private JobBuilderFactory jobBuilderFactory;
+//  @Autowired
+//  private JobBuilderFactory jobBuilderFactory;
 
 
 }

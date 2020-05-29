@@ -1,12 +1,15 @@
-package com.chistoper.jin.free;
+package com.christoper.jin.free;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * @Class FreeScraperTest
@@ -23,7 +26,10 @@ import java.net.URL;
  * 2020. 5. 29. || 진형은 || 최초생성
  */
 
+@RunWith(SpringRunner.class)
+@SpringBootApplication
 public class FreeScraperTest {
+
   public static void main(String[] args) throws IOException {
     //Document document = Jsoup.connect("https://cafe.naver.com/joonggonara?iframe_url=/ArticleList.nhn%3Fsearch.clubid=10050146%26search.menuid=96%26search.boardtype=L%26search.totalCount=151%26search.page=1").get();
     Document document = Jsoup.connect("https://cafe.naver.com/ArticleList.nhn?search.clubid=10050146&search.menuid=96&search.boardtype=L&search.totalCount=151&search.page=1").get();
